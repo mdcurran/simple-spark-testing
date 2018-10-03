@@ -1,0 +1,12 @@
+language: scala
+scala:
+- 2.10.7
+jdk:
+- oraclejdk8
+script: sbt ++$TRAVIS_SCALA_VERSION clean test
+notifications:
+  email:
+    recipients:
+    - maxcurran96@gmail.com
+    on_success: always
+    on_failure: always
