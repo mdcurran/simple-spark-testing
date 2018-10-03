@@ -1,11 +1,15 @@
 package com.mdcurran.simple.spark.testing
 
 import org.apache.spark.{SparkConf, SparkContext}
-import org.scalatest.Suite
+import org.scalatest.{BeforeAndAfterAll, Suite}
 
-trait SharedSparkContext { self: Suite =>
+trait SharedSparkContext extends BeforeAndAfterAll { self: Suite =>
 
   var sparkContext: SparkContext = _
+
+  override def beforeAll(): Unit = sparkContext = createSparkContext
+
+  override def afterAll(): Unit = sparkContext.stop()
 
   def createSparkContext: SparkContext = {
     val conf = new SparkConf()
