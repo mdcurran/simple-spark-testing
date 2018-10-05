@@ -1,6 +1,6 @@
-organization := "com.mdcurran.simple.spark.testing"
+organization := "com.mdcurran"
 
-name := "simple-spark-testing-library"
+name := "simple-spark-testing"
 
 version := "0.0.1"
 

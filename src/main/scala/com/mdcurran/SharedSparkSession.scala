@@ -1,4 +1,4 @@
-package com.mdcurran.simple.spark.testing
+package com.mdcurran
 
 import org.apache.spark.sql.SparkSession
 import org.scalatest.{BeforeAndAfterAll, Suite}

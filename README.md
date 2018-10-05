@@ -1,4 +1,4 @@
-# simple-spark-testing-library
+# simple-spark-testing
 
 [![travis](https://travis-ci.org/mdcurran/simple-spark-testing-library.svg?branch=master)](https://travis-ci.org/mdcurran/simple-spark-testing-library)
 [![codecov](https://codecov.io/gh/mdcurran/simple-spark-testing-library/branch/master/graph/badge.svg)](https://codecov.io/gh/mdcurran/simple-spark-testing-library)

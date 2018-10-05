@@ -1,4 +1,4 @@
-package com.mdcurran.simple.spark.testing
+package com.mdcurran
 
 import org.apache.spark.sql.{DataFrame, Row}
 import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
