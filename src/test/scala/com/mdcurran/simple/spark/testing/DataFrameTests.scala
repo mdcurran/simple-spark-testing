@@ -5,7 +5,7 @@ import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructT
 import org.apache.spark.sql.functions.col
 import org.scalatest.FlatSpec
 
-class DataFrameTests extends FlatSpec with SharedSQLContext {
+class DataFrameTests extends FlatSpec with SharedSparkSession {
   import DataFrameTests._
 
   "The countOfAge function" should "return a DataFrame counting the number of records per age" in {
@@ -19,7 +19,7 @@ class DataFrameTests extends FlatSpec with SharedSQLContext {
     val schema = Seq(
       StructField("name", StringType),
       StructField("age", IntegerType))
-    val df = sqlContext.createDataFrame(sqlContext.sparkContext.parallelize(data), StructType(schema))
+    val df = spark.createDataFrame(spark.sparkContext.parallelize(data), StructType(schema))
     val result = countOfAge(df)
     assert(result.filter(col("age") === 21).select("count").first().mkString(",") === "3")
   }
@@ -35,7 +35,7 @@ class DataFrameTests extends FlatSpec with SharedSQLContext {
     val schema = Seq(
       StructField("name", StringType),
       StructField("age", IntegerType))
-    val df = sqlContext.createDataFrame(sqlContext.sparkContext.parallelize(data), StructType(schema))
+    val df = spark.createDataFrame(spark.sparkContext.parallelize(data), StructType(schema))
     val result = countOfAge(df)
     assert(result.count === 3)
   }
