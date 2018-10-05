@@ -1,7 +1,7 @@
 # simple-spark-testing
 
-[![travis](https://travis-ci.org/mdcurran/simple-spark-testing-library.svg?branch=master)](https://travis-ci.org/mdcurran/simple-spark-testing-library)
-[![codecov](https://codecov.io/gh/mdcurran/simple-spark-testing-library/branch/master/graph/badge.svg)](https://codecov.io/gh/mdcurran/simple-spark-testing-library)
+[![travis](https://travis-ci.org/mdcurran/simple-spark-testing.svg?branch=master)](https://travis-ci.org/mdcurran/simple-spark-testing)
+[![codecov](https://codecov.io/gh/mdcurran/simple-spark-testing/branch/master/graph/badge.svg)](https://codecov.io/gh/mdcurran/simple-spark-testing)
 
 A small library designed to be a wrapper for unit and integration tests. Tailored for Spark 2.3.
 
