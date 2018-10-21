@@ -9,22 +9,6 @@ import org.scalatest.FlatSpec
 class SharedSparkSessionTests extends FlatSpec with SharedSparkSession {
   import SharedSparkSessionTests._
 
-  "The createSparkSession function" should "create an active SparkSession" in {
-    assert(!spark.sparkContext.isStopped)
-  }
-
-  "The createSparkContext function" should "have an appName of the local class" in {
-    assert(spark.sparkContext.appName == "SharedSparkSessionTests")
-  }
-
-  "The createSparkContext function" should "create a local instance of a SparkContext" in {
-    assert(spark.sparkContext.isLocal)
-  }
-
-  "The createSparkContext function" should "have the master set to local" in {
-    assert(spark.sparkContext.master == "local")
-  }
-
   "The factorialSum function" should "return the sum of the factorial of an RDD of integers" in {
     val rdd = spark.sparkContext.parallelize(Seq(1, 2, 3, 4, 5))
     assert(factorialSum(rdd) == 153)
