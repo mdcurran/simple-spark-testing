@@ -1,5 +1,6 @@
 package com.mdcurran
 
+import com.mdcurran.scalatest.SharedSparkContext
 import org.scalatest.FlatSpec
 
 class SharedSparkContextTests extends FlatSpec with SharedSparkContext {

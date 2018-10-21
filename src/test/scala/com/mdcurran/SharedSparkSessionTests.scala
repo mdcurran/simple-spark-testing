@@ -1,5 +1,6 @@
 package com.mdcurran
 
+import com.mdcurran.scalatest.SharedSparkSession
 import org.scalatest.FlatSpec
 
 class SharedSparkSessionTests extends FlatSpec with SharedSparkSession {

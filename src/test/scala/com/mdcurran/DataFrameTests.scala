@@ -1,5 +1,6 @@
 package com.mdcurran
 
+import com.mdcurran.scalatest.SharedSparkSession
 import org.apache.spark.sql.{DataFrame, Row}
 import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
 import org.apache.spark.sql.functions.col

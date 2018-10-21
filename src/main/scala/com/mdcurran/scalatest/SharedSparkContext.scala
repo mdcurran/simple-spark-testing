@@ -1,4 +1,4 @@
-package com.mdcurran
+package com.mdcurran.scalatest
 
 import org.apache.spark.{SparkConf, SparkContext}
 import org.scalatest.{BeforeAndAfterAll, Suite}

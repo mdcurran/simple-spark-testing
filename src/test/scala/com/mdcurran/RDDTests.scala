@@ -1,5 +1,6 @@
 package com.mdcurran
 
+import com.mdcurran.scalatest.SharedSparkContext
 import org.apache.spark.rdd.RDD
 import org.scalatest.FlatSpec
 
