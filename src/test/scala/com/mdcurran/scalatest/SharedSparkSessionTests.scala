@@ -1,12 +1,18 @@
-package com.mdcurran
+package com.mdcurran.scalatest
 
-import org.apache.spark.sql.{DataFrame, Row}
-import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
+import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.functions.col
+import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
+import org.apache.spark.sql.{DataFrame, Row}
 import org.scalatest.FlatSpec
 
-class DataFrameTests extends FlatSpec with SharedSparkSession {
-  import DataFrameTests._
+class SharedSparkSessionTests extends FlatSpec with SharedSparkSession {
+  import SharedSparkSessionTests._
+
+  "The factorialSum function" should "return the sum of the factorial of an RDD of integers" in {
+    val rdd = spark.sparkContext.parallelize(Seq(1, 2, 3, 4, 5))
+    assert(factorialSum(rdd) == 153)
+  }
 
   "The countOfAge function" should "return a DataFrame counting the number of records per age" in {
     val data = Seq(
@@ -42,7 +48,14 @@ class DataFrameTests extends FlatSpec with SharedSparkSession {
 
 }
 
-object DataFrameTests {
+object SharedSparkSessionTests {
+
+  private def factorialSum(rdd: RDD[Int]): Int = {
+    def factorial(n: Int): Int =
+      if (n == 0) 1
+      else n * factorial(n - 1)
+    rdd.map(i => factorial(i)).reduce(_ + _)
+  }
 
   private def countOfAge(df: DataFrame): DataFrame = df.groupBy("age").count()
 
