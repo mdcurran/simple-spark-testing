@@ -11,7 +11,12 @@ object CucumberConversions {
 
   val spark: SparkSession = createSparkSession
 
-  def dataTableToDataFrame(data: DataTable): DataFrame = ???
+  def dataTableToDataFrame(data: DataTable): DataFrame = {
+    val columns = extractColumns(data)
+    val schema = deriveSchema(columns)
+    val rows = extractRows(data, schema)
+    spark.sqlContext.createDataFrame(spark.sparkContext.parallelize(rows), schema)
+  }
 
   def extractColumns(data: DataTable): List[(String, DataType)] = {
     data.topCells()
