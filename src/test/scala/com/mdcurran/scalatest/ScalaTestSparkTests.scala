@@ -6,8 +6,8 @@ import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructT
 import org.apache.spark.sql.{DataFrame, Row}
 import org.scalatest.FlatSpec
 
-class SharedSparkSessionTests extends FlatSpec with SharedSparkSession {
-  import SharedSparkSessionTests._
+class ScalaTestSparkTests extends FlatSpec with ScalaTestSpark {
+  import ScalaTestSparkTests._
 
   "The factorialSum function" should "return the sum of the factorial of an RDD of integers" in {
     val rdd = spark.sparkContext.parallelize(Seq(1, 2, 3, 4, 5))
@@ -48,7 +48,7 @@ class SharedSparkSessionTests extends FlatSpec with SharedSparkSession {
 
 }
 
-object SharedSparkSessionTests {
+object ScalaTestSparkTests {
 
   private def factorialSum(rdd: RDD[Int]): Int = {
     def factorial(n: Int): Int =

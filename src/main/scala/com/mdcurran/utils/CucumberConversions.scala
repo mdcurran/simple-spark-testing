@@ -1,22 +1,12 @@
 package com.mdcurran.utils
 
-import com.mdcurran.utils.CustomSparkSession._
 import cucumber.api.DataTable
-import org.apache.spark.sql.{DataFrame, Row, SparkSession}
+import org.apache.spark.sql.Row
 import org.apache.spark.sql.types.{DataType, DataTypes, StructField, StructType}
 
 import scala.collection.JavaConversions._
 
 object CucumberConversions {
-
-  val spark: SparkSession = createSparkSession
-
-  def dataTableToDataFrame(data: DataTable): DataFrame = {
-    val columns = extractColumns(data)
-    val schema = deriveSchema(columns)
-    val rows = extractRows(data, schema)
-    spark.sqlContext.createDataFrame(spark.sparkContext.parallelize(rows), schema)
-  }
 
   def extractColumns(data: DataTable): List[(String, DataType)] = {
     data.topCells()
