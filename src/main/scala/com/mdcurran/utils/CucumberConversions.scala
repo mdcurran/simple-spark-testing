@@ -30,6 +30,19 @@ object CucumberConversions {
     })
   }
 
-  def extractRows(data: DataTable, schema: StructType): List[Row] = ???
+  def extractRows(data: DataTable, schema: StructType): List[Row] = {
+    data.asMaps(classOf[String], classOf[String])
+      .map { row =>
+        val values = row
+          .values()
+          .zip(extractColumns(data))
+          .map { case (v, (_, dt)) => (v, dt) }
+          .map {
+            case (v, DataTypes.StringType) => v
+            case (v, DataTypes.IntegerType) => v.toInt
+          }.toSeq
+        Row.fromSeq(values)
+      }.toList
+  }
 
 }
