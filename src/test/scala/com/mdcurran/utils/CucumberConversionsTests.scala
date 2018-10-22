@@ -27,6 +27,16 @@ class CucumberConversionsTests extends FlatSpec with ScalaTestSpark {
     assert(output == expected)
   }
 
+  it should "throw an IllegalArgumentException if an illegal data type is provided" in {
+    val illegalData = DataTable.create(java.util.Arrays.asList(
+      java.util.Arrays.asList("col_a: String", "col_b: Int", "col_c: undefined"),
+      java.util.Arrays.asList("abc", 10, "?"))
+    )
+    assertThrows[IllegalArgumentException]{
+      extractColumns(illegalData)
+    }
+  }
+
   "The deriveSchema function" should "return a Spark SQL StructType schema" in {
     val columns = List(("col_a", DataTypes.StringType), ("col_b", DataTypes.IntegerType))
     val expected = StructType(List(

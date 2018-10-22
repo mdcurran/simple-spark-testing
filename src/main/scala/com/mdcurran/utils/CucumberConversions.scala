@@ -15,7 +15,8 @@ object CucumberConversions {
       .map {
         case (name, "string") => (name, DataTypes.StringType)
         case (name, "int") => (name, DataTypes.IntegerType)
-        case (name, _) => (name, DataTypes.StringType)
+        case (name, _) => throw new IllegalArgumentException(s"$name invalid - " +
+          s"provide a valid data type: String | Int")
       }.toList
   }
 
