@@ -15,7 +15,7 @@ class CucumberSparkSteps extends CucumberSpark with Matchers {
   Given("""^a Cucumber DataTable$""") { data: DataTable => dataTable = data }
 
   When("""^the DataTable is converted to a Spark DataFrame$""") { () =>
-    dataFrame = dataTableToDataFrame(spark, dataTable)
+    dataFrame = dataTableToDataFrame(dataTable)
   }
 
   Then("""^the DataFrame has (\d+) columns$""") { numColumns: Int =>

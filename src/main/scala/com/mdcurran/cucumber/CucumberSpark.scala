@@ -18,7 +18,7 @@ trait CucumberSpark extends ScalaDsl with EN {
     spark.stop()
   }
 
-  def dataTableToDataFrame(spark: SparkSession, data: DataTable): DataFrame = {
+  def dataTableToDataFrame(data: DataTable): DataFrame = {
     val columns = extractColumns(data)
     val schema = deriveSchema(columns)
     val rows = extractRows(data, schema)
