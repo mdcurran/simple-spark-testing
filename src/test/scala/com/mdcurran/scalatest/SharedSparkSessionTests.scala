@@ -30,7 +30,7 @@ class SharedSparkSessionTests extends FlatSpec with SharedSparkSession {
     assert(result.filter(col("age") === 21).select("count").first().mkString(",") === "3")
   }
 
-  "The countOfAge function" should "return a row for each unique age" in {
+  it should "return a row for each unique age" in {
     val data = Seq(
       Row("John", 21),
       Row("Jane", 18),
