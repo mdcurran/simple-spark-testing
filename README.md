@@ -1,5 +1,6 @@
 # simple-spark-testing
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/74599363b0734ad1843843273fad87f5)](https://app.codacy.com/app/mdcurran/simple-spark-testing?utm_source=github.com&utm_medium=referral&utm_content=mdcurran/simple-spark-testing&utm_campaign=Badge_Grade_Dashboard)
 [![travis](https://travis-ci.org/mdcurran/simple-spark-testing.svg?branch=master)](https://travis-ci.org/mdcurran/simple-spark-testing)
 [![codecov](https://codecov.io/gh/mdcurran/simple-spark-testing/branch/master/graph/badge.svg)](https://codecov.io/gh/mdcurran/simple-spark-testing)
 
