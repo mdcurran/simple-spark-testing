@@ -57,10 +57,14 @@ override def beforeAll(): Unit = {
 
 ## Cucumber
 
-Mix-in your steps file with the `CucumberSpark` trait. Like the ScalaTest trait, a new SparkSession is created for each Scenario.
+Mix-in your steps file with the `CucumberSpark` trait. Like the ScalaTest trait, a new SparkSession is created for each Scenario. The `CucumberSpec` trait must also be mixed-in:
 
 ```scala
-class ExampleSteps extends CucumberSpark
+class CucumberTestSuite extends CucumberSpec
+
+class ExampleSteps extends CucumberSpark {
+  ...
+}
 ```
 
 A Cucumber DataTable can be converted to a Spark DataFrame in the `Given` step of a Scenario:
