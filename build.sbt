@@ -9,8 +9,8 @@ scalaVersion := "2.11.12"
 parallelExecution in Test := false
 
 libraryDependencies ++= Seq(
-  "org.apache.spark" %% "spark-core" % "2.3.2" % "provided",
-  "org.apache.spark" %% "spark-sql" % "2.3.2" % "provided",
+  "org.apache.spark" %% "spark-core" % "2.4.0" % "provided",
+  "org.apache.spark" %% "spark-sql" % "2.4.0" % "provided",
   "io.cucumber" % "cucumber-core" % "2.0.1",
   "io.cucumber" %% "cucumber-scala" % "2.0.1",
   "com.waioeka.sbt" %% "cucumber-runner" % "0.1.3",
