@@ -6,6 +6,10 @@ import cucumber.api.DataTable
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
+/**
+  * Trait to provide a new SparkSession before each Cucumber scenario. Also implements
+  * functionality to convert Cucumber/Gherkin DataTables to Spark DataFrames.
+  */
 trait CucumberSpark extends ScalaDsl with EN {
 
   var spark: SparkSession = _

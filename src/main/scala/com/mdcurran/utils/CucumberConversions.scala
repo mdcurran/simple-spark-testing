@@ -6,6 +6,9 @@ import org.apache.spark.sql.types.{DataType, DataTypes, StructField, StructType}
 
 import scala.collection.JavaConversions._
 
+/**
+  * Functions that combine to programmatically derive Spark DataFrames from Cucumber/Gherkin DataTables.
+  */
 object CucumberConversions {
 
   def extractColumns(data: DataTable): List[(String, DataType)] = {
